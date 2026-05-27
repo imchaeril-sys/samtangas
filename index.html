@@ -1,0 +1,3076 @@
+<!doctype html>
+<html lang="id" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PT Perta-Samtan Gas Energy - Landing Page V2</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- FONT MIRIP PERTAMINA -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+
+      body {
+        overflow-x: hidden;
+        background: #f8fafc;
+      }
+
+      /* =========================
+   NAVBAR STYLE
+========================== */
+
+      #navbar {
+        transition:
+          background 0.4s ease,
+          box-shadow 0.4s ease,
+          border-color 0.4s ease;
+      }
+
+      /* ===================================
+   NAVBAR AWAL
+   MENYATU DENGAN SLIDER
+=================================== */
+
+      #navbar.transparent {
+        background: transparent;
+        box-shadow: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      /* MENU PUTIH */
+      #navbar.transparent .nav-link {
+        color: white;
+      }
+
+      #navbar.transparent .nav-link:hover {
+        color: #dbeafe;
+      }
+
+      /* HAMBURGER PUTIH */
+      #navbar.transparent #menu-btn {
+        color: white;
+      }
+
+      /* BUTTON LANG PUTIH */
+      #navbar.transparent #lang-btn {
+        border-color: rgba(255, 255, 255, 0.4);
+        color: white;
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+      }
+
+      /* ===================================
+   NAVBAR SAAT SCROLL
+   BACKGROUND PUTIH SOLID
+=================================== */
+
+      #navbar.scrolled {
+        background: #ffffff; /* PUTIH */
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      /* MENU BIRU PERTAMINA */
+      #navbar.scrolled .nav-link {
+        color: #0f3b8c;
+      }
+
+      #navbar.scrolled .nav-link:hover {
+        color: #2563eb;
+      }
+
+      /* HAMBURGER */
+      #navbar.scrolled #menu-btn {
+        color: #0f3b8c;
+      }
+
+      /* BUTTON LANG */
+      #navbar.scrolled #lang-btn {
+        border-color: #d1d5db;
+        color: #0f3b8c;
+        background: #ffffff;
+      }
+
+      /* =========================
+       HERO SLIDER
+    ========================== */
+
+      #hero-slider {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transform: scale(1.05);
+        transition:
+          opacity 1.2s ease,
+          transform 6s ease;
+      }
+
+      .slide.active {
+        opacity: 1;
+        transform: scale(1);
+        z-index: 1;
+      }
+
+      /* Overlay gelap */
+      .slide::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.7) 20%,
+          rgba(0, 0, 0, 0.45) 55%,
+          rgba(0, 0, 0, 0.25) 100%
+        );
+      }
+
+      /* =========================
+       TEXT HERO
+    ========================== */
+
+      .hero-title {
+        font-size: clamp(2rem, 2vw, 2.8rem);
+        line-height: 1.05;
+        font-weight: 600;
+        color: white;
+        letter-spacing: -2px;
+      }
+
+      .hero-desc {
+        color: rgba(255, 255, 255, 0.88);
+        line-height: 1.9;
+        font-size: 1rem;
+        max-width: 620px;
+      }
+
+      .hero-btn {
+        background: #2563eb;
+        transition: 0.3s;
+      }
+
+      .hero-btn:hover {
+        background: #1d4ed8;
+        transform: translateY(-2px);
+      }
+
+      /* =========================
+       CARD BOTTOM
+    ========================== */
+
+      .info-card {
+        backdrop-filter: blur(14px);
+        background: rgba(255, 255, 255, 0.95);
+      }
+
+      /* =========================
+       MOBILE MENU
+    ========================== */
+
+      #mobile-menu {
+        transition: 0.3s ease;
+      }
+
+      /* =========================
+       LOGO
+    ========================== */
+
+      .logo-img {
+        transition: 0.4s ease;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================
+       NAVBAR
+  ========================== -->
+
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transparent">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between"
+      >
+        <!-- LOGO -->
+        <div class="flex items-center">
+          <img
+            id="navbar-logo"
+            src="assets/image/images/PSGPutih.png"
+            alt="Logo PSG"
+            class="logo-img w-44 md:w-56 h-auto object-contain"
+          />
+        </div>
+
+        <!-- MENU DESKTOP -->
+        <div class="hidden lg:flex items-center gap-10">
+          <div class="flex gap-8 text-sm font-semibold tracking-wide">
+            <a href="#home" class="nav-link transition"> Home </a>
+
+            <a href="#about" class="nav-link transition"> About Us </a>
+
+            <a href="#bisnis" class="nav-link transition"> Our Business </a>
+
+            <a href="#contribution" class="nav-link transition">
+              Our Contribution
+            </a>
+
+            <a href="#contact" class="nav-link transition"> Contact Us </a>
+          </div>
+
+          <button
+            id="lang-btn"
+            class="flex items-center gap-2 border rounded-full px-4 py-2 text-xs font-bold transition"
+          >
+            <i class="fa-solid fa-globe"></i>
+            <span>EN</span>
+          </button>
+        </div>
+
+        <!-- MOBILE -->
+        <div class="flex items-center gap-4 lg:hidden">
+          <button id="menu-btn" class="text-2xl">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden bg-white px-6 py-5 flex flex-col gap-5 shadow-xl"
+      >
+        <a href="#home" class="text-slate-700 font-semibold"> Home </a>
+
+        <a href="#about" class="text-slate-700 font-semibold"> About Us </a>
+
+        <a href="#bisnis" class="text-slate-700 font-semibold">
+          Our Business
+        </a>
+
+        <a href="#contribution" class="text-slate-700 font-semibold">
+          Our Contribution
+        </a>
+
+        <a href="#contact" class="text-slate-700 font-semibold"> Contact Us </a>
+      </div>
+    </nav>
+
+    <!-- =========================
+   <!-- HERO SLIDER -->
+
+    <style>
+      /* Menjamin slide menutupi seluruh area hero dengan sempurna */
+      #hero-slider .slide {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transform: scale(1.03);
+        transition:
+          opacity 1.2s ease-in-out,
+          transform 1.2s ease-in-out;
+        z-index: 0;
+      }
+
+      /* Slide aktif memudar masuk dan bergerak maju perlahan (efek sinematik Ken Burns) */
+      #hero-slider .slide.active {
+        opacity: 1;
+        transform: scale(1);
+        z-index: 1;
+      }
+    </style>
+
+    <section
+      id="home"
+      class="relative min-h-screen w-full flex items-center overflow-hidden"
+    >
+      <div id="hero-slider" class="absolute inset-0 w-full h-full z-0">
+        <div
+          class="slide active"
+          style="
+            background-image: url(&quot;assets/image/header/header1.jpg&quot;);
+          "
+        ></div>
+
+        <div
+          class="slide"
+          style="
+            background-image: url(&quot;assets/image/header/header2.jpg&quot;);
+          "
+        ></div>
+
+        <div
+          class="slide"
+          style="
+            background-image: url(&quot;assets/image/header/header3.jpg&quot;);
+          "
+        ></div>
+      </div>
+
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-10"
+      ></div>
+
+      <div class="relative z-20 w-full py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="max-w-3xl space-y-6">
+            <div>
+              <div
+                class="w-24 h-1.5 rounded-full bg-gradient-to-r from-[#4CAF50] to-blue-500"
+              ></div>
+            </div>
+
+            <h1
+              class="hero-title text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-md"
+            >
+              Komitmen Tanpa Henti Mengalirkan Energi Negeri
+            </h1>
+
+            <p
+              class="hero-desc text-base sm:text-lg text-slate-200 font-light leading-relaxed max-w-2xl drop-shadow"
+            >
+              Kami menyediakan solusi energi terpercaya dengan standar HSSE
+              tertinggi demi masa depan yang lebih baik, aman, dan berkelanjutan
+              untuk Indonesia.
+            </p>
+
+            <div class="flex flex-wrap gap-4 pt-4">
+              <a
+                href="#bisnis"
+                class="hero-btn text-white bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 font-semibold px-8 py-4 rounded-xl inline-flex items-center gap-3 shadow-lg shadow-blue-950/50 transform hover:-translate-y-0.5 transition-all duration-300"
+              >
+                Explore Company
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2.5"
+                  stroke="currentColor"
+                  class="w-4 h-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13.5 4.5l6 6m0 0l-6 6m6-6H3"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INFO CARD -->
+      <div class="absolute bottom-0 left-0 right-0 w-full z-30 px-4 md:px-8">
+        <div
+          class="max-w-7xl mx-auto bg-white rounded-t-[32px] shadow-[0_-15px_30px_rgba(0,0,0,0.05)] border-t border-x border-slate-100 p-6 md:p-8"
+        >
+          <div
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-y-8 gap-x-4 items-center"
+          >
+            <div
+              class="flex items-center gap-3.5 px-2 justify-start lg:border-r lg:border-slate-200 last:border-0"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-factory text-blue-600 text-lg"></i>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span
+                  class="font-black text-slate-900 text-base md:text-lg tracking-tight truncate"
+                  >25.000.000 MT</span
+                >
+                <span
+                  class="text-xs font-medium text-slate-400 whitespace-nowrap"
+                  >Total Produksi</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-3.5 px-2 justify-start lg:border-r lg:border-slate-200 last:border-0"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-database text-blue-600 text-lg"></i>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span
+                  class="font-black text-slate-900 text-base md:text-lg tracking-tight truncate"
+                  >250 MMSCFD</span
+                >
+                <span
+                  class="text-xs font-medium text-slate-400 whitespace-nowrap"
+                  >Kapasitas Desain</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-3.5 px-2 justify-start lg:border-r lg:border-slate-200 last:border-0"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-cyan-50 flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-fire text-cyan-600 text-lg"></i>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span
+                  class="font-black text-slate-900 text-base md:text-lg tracking-tight truncate"
+                  >710 MT/Hari</span
+                >
+                <span
+                  class="text-xs font-medium text-slate-400 whitespace-nowrap"
+                  >Produksi LPG</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-3.5 px-2 justify-start lg:border-r lg:border-slate-200 last:border-0"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-droplet text-blue-600 text-lg"></i>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span
+                  class="font-black text-slate-900 text-base md:text-lg tracking-tight truncate"
+                  >2200 bbl/Hari</span
+                >
+                <span
+                  class="text-xs font-medium text-slate-400 whitespace-nowrap"
+                  >Kondensat</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-3.5 px-2 justify-start lg:border-r lg:border-slate-200 last:border-0"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-route text-blue-600 text-lg"></i>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span
+                  class="font-black text-slate-900 text-base md:text-lg tracking-tight truncate"
+                  >90 KM</span
+                >
+                <span
+                  class="text-xs font-medium text-slate-400 whitespace-nowrap"
+                  >Panjang Pipa NGL</span
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex items-center gap-3.5 px-2 justify-start last:border-0"
+            >
+              <div
+                class="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center shrink-0"
+              >
+                <i class="fa-solid fa-industry text-emerald-600 text-lg"></i>
+              </div>
+              <div class="flex flex-col min-w-0">
+                <span
+                  class="font-black text-slate-900 text-base md:text-lg tracking-tight truncate"
+                  >2 Kilang</span
+                >
+                <span
+                  class="text-xs font-medium text-slate-400 whitespace-nowrap"
+                  >Fasilitas Produksi</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- END HERO -->
+
+    <!-- About -->
+    <section
+      id="about"
+      class="pt-24 pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24"
+    >
+      <div class="grid lg:grid-cols-2 gap-12 items-stretch" data-aos="fade-up">
+        <div class="space-y-5 flex flex-col justify-center">
+          <div class="space-y-2">
+            <span
+              class="text-xs uppercase font-bold text-blue-700 tracking-widest"
+              data-id="section-about-subtitle"
+            >
+              Profil Perusahaan
+            </span>
+
+            <h3
+              class="text-3xl font-extrabold tracking-tight text-blue-900 sm:text-4xl"
+              data-id="timeline-main-title"
+            >
+              Tentang Kami
+            </h3>
+          </div>
+          <div
+            class="text-slate-600 leading-relaxed text-sm sm:text-base space-y-4 text-justify"
+            data-id="about-desc"
+          >
+            <p>
+              PT Perta-Samtan Gas didirikan pada 7 Mei 2008 dengan tujuan
+              memproduksi LPG (Liquified Petroleum Gas) guna mendukung program
+              Pemerintah dalam rangka konversi minyak tanah ke LPG serta
+              penyediaan energi bagi masyarakat, sekaligus mengurangi beban
+              Pemerintah dalam subsidi BBM.
+            </p>
+            <p>
+              Perseroan bergerak dalam bisnis pengolahan gas serta menyediakan
+              layanan jasa dan infrastruktur terkait Pemrosesan Gas dengan dua
+              kilang terintegrasi di Prabumulih dan Sungai Gerong, Sumatera
+              Selatan.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="relative min-h-[350px] lg:min-h-full rounded-2xl overflow-hidden shadow-xl border border-slate-100"
+        >
+          <img
+            src="assets/image/images/pabrik.jpg"
+            alt="Pabrik Perusahaan"
+            class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent"
+          ></div>
+        </div>
+      </div>
+
+      <div
+        class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-100 shadow-xl shadow-slate-100/80"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        <div
+          class="grid grid-cols-2 lg:grid-cols-4 gap-y-8 gap-x-4 divide-y-0 divide-x-0 sm:grid-cols-2 lg:divide-x lg:divide-slate-100"
+        >
+          <div class="flex items-center gap-4 lg:justify-center px-2">
+            <div
+              class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl shrink-0"
+            >
+              <i class="fa-solid fa-calendar-check"></i>
+            </div>
+            <div class="space-y-0.5">
+              <div
+                class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight"
+              >
+                7 Mei 2008
+              </div>
+              <div
+                class="text-slate-500 text-[11px] sm:text-xs font-medium uppercase tracking-wider"
+              >
+                Tahun Berdiri
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 lg:justify-center px-2">
+            <div
+              class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl shrink-0"
+            >
+              <i class="fa-solid fa-industry"></i>
+            </div>
+            <div class="space-y-0.5">
+              <div
+                class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight"
+              >
+                2 Kilang
+              </div>
+              <div
+                class="text-slate-500 text-[11px] sm:text-xs font-medium uppercase tracking-wider"
+              >
+                Terintegrasi
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 lg:justify-center px-2">
+            <div
+              class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl shrink-0"
+            >
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div class="space-y-0.5">
+              <div
+                class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight"
+              >
+                2 Lokasi
+              </div>
+              <div
+                class="text-slate-500 text-[11px] sm:text-xs font-medium uppercase tracking-wider"
+              >
+                Strategis
+              </div>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-4 lg:justify-center px-2">
+            <div
+              class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl shrink-0"
+            >
+              <i class="fa-solid fa-user-gear"></i>
+            </div>
+            <div class="space-y-0.5">
+              <div
+                class="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight"
+              >
+                140++
+              </div>
+              <div
+                class="text-slate-500 text-[11px] sm:text-xs font-medium uppercase tracking-wider"
+              >
+                Profesional
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="grid lg:grid-cols-2 gap-8 items-stretch max-w-7xl mx-auto px-4"
+      >
+        <div
+          class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/60 shadow-xl shadow-slate-100/50 flex flex-col justify-between"
+          data-aos="fade-right"
+        >
+          <div class="space-y-6">
+            <div class="flex items-center gap-3">
+              <div class="w-1 h-7 bg-blue-600 rounded-full"></div>
+              <h4
+                class="text-xl font-extrabold tracking-tight text-slate-900"
+                data-id="features-title"
+              >
+                Tujuan & Maksud Perseroan
+              </h4>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4 text-xs sm:text-[13px]">
+              <div
+                class="p-4 bg-slate-50/80 hover:bg-blue-50/40 rounded-xl border border-slate-100 transition duration-300 flex flex-col gap-2"
+              >
+                <div
+                  class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600"
+                >
+                  <i class="fa-solid fa-leaf text-sm"></i>
+                </div>
+                <p class="text-slate-600 leading-relaxed">
+                  Ekstraksi dan pemrosesan gas alam menjadi LPG dan produk gas
+                  lainnya.
+                </p>
+              </div>
+              <div
+                class="p-4 bg-slate-50/80 hover:bg-blue-50/40 rounded-xl border border-slate-100 transition duration-300 flex flex-col gap-2"
+              >
+                <div
+                  class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600"
+                >
+                  <i class="fa-solid fa-chart-line text-sm"></i>
+                </div>
+                <p class="text-slate-600 leading-relaxed">
+                  Optimalisasi sumber daya dan fasilitas pemrosesan gas untuk
+                  layanan terbaik.
+                </p>
+              </div>
+              <div
+                class="p-4 bg-slate-50/80 hover:bg-blue-50/40 rounded-xl border border-slate-100 transition duration-300 flex flex-col gap-2"
+              >
+                <div
+                  class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600"
+                >
+                  <i class="fa-solid fa-truck-ramp-box text-sm"></i>
+                </div>
+                <p class="text-slate-600 leading-relaxed">
+                  Niaga dan distribusi LPG untuk memenuhi program Public Service
+                  Obligation (PSO).
+                </p>
+              </div>
+              <div
+                class="p-4 bg-slate-50/80 hover:bg-blue-50/40 rounded-xl border border-slate-100 transition duration-300 flex flex-col gap-2"
+              >
+                <div
+                  class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600"
+                >
+                  <i class="fa-solid fa-building-shield text-sm"></i>
+                </div>
+                <p class="text-slate-600 leading-relaxed">
+                  Penyediaan infrastruktur terkait sektor pemrosesan gas secara
+                  berkelanjutan.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200/60 shadow-xl shadow-slate-100/50 space-y-6 flex flex-col justify-center"
+          data-aos="fade-left"
+        >
+          <div
+            class="relative group p-4 bg-gradient-to-r from-slate-50 to-white rounded-xl border border-slate-100 transition duration-300 hover:shadow-md"
+          >
+            <div class="flex gap-4 items-start">
+              <div
+                class="w-10 h-10 rounded-xl bg-blue-600 text-white flex items-center justify-center text-base shadow-md shadow-blue-200 shrink-0"
+              >
+                <i class="fa-solid fa-eye"></i>
+              </div>
+              <div class="space-y-1">
+                <h4
+                  class="font-extrabold text-slate-900 text-sm tracking-wider uppercase"
+                >
+                  Visi
+                </h4>
+                <p
+                  class="text-slate-600 text-xs sm:text-[13px] leading-relaxed font-semibold"
+                >
+                  Menjadi Perseroan Terkemuka di Dunia dalam Industri LPG & Gas.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative group p-4 bg-gradient-to-r from-slate-50 to-white rounded-xl border border-slate-100 transition duration-300 hover:shadow-md"
+          >
+            <div class="flex gap-4 items-start">
+              <div
+                class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-base shadow-md shadow-emerald-200 shrink-0"
+              >
+                <i class="fa-solid fa-bullseye"></i>
+              </div>
+              <div class="space-y-1">
+                <h4
+                  class="font-extrabold text-slate-900 text-sm tracking-wider uppercase"
+                >
+                  Misi
+                </h4>
+                <p
+                  class="text-slate-600 text-xs sm:text-[13px] leading-relaxed"
+                >
+                  Memberikan nilai tambah bagi Pemegang Saham, Karyawan, dan
+                  Masyarakat Indonesia melalui efisiensi kerja dan daya saing
+                  yang tinggi.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-8 pt-4 max-w-7xl mx-auto px-4" data-aos="fade-up">
+        <div class="text-left space-y-2">
+          <div class="inline-flex flex-col items-left gap-1.5"></div>
+
+          <h3
+            class="text-3xl font-extrabold tracking-tight text-blue-900 sm:text-4xl"
+            data-id="timeline-main-title"
+          >
+            Tata Nilai Perseroan
+          </h3>
+
+          <p
+            class="text-slate-500 text-left max-w-2xl text-xs sm:text-sm leading-relaxed"
+            data-id="values-main-desc"
+          >
+            Bersama tata nilai AKHLAK, budaya HSSE, dan rekam jejak operasional
+            kuat untuk menjadi mitra energi terpercaya bagi Indonesia.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div
+            class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md relative overflow-hidden"
+          >
+            <span
+              class="absolute top-2 right-3 text-[11px] font-bold text-blue-600 bg-blue-50/60 px-2 py-0.5 rounded"
+              >01</span
+            >
+            <div
+              class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-xl text-red-500 shrink-0 shadow-sm"
+            >
+              <i class="fa-solid fa-crosshairs"></i>
+            </div>
+            <div class="space-y-1 pr-4">
+              <h4 class="font-bold text-slate-900 text-base" data-id="v1-title">
+                Profesional
+              </h4>
+              <p
+                class="text-slate-500 text-xs sm:text-[13px] leading-relaxed"
+                data-id="v1-desc"
+              >
+                Komitmen perbaikan berkelanjutan dan profesionalisme tinggi di
+                setiap aspek kerja.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md relative overflow-hidden"
+          >
+            <span
+              class="absolute top-2 right-3 text-[11px] font-bold text-blue-600 bg-blue-50/60 px-2 py-0.5 rounded"
+              >02</span
+            >
+            <div
+              class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-xl text-red-500 shrink-0 shadow-sm"
+            >
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div class="space-y-1 pr-4">
+              <h4 class="font-bold text-slate-900 text-base" data-id="v2-title">
+                HSSE
+              </h4>
+              <p
+                class="text-slate-500 text-xs sm:text-[13px] leading-relaxed"
+                data-id="v2-desc"
+              >
+                Fokus keselamatan kerja, proses, kesehatan, keamanan, dan
+                lingkungan operasional.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md relative overflow-hidden"
+          >
+            <span
+              class="absolute top-2 right-3 text-[11px] font-bold text-blue-600 bg-blue-50/60 px-2 py-0.5 rounded"
+              >03</span
+            >
+            <div
+              class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-xl text-amber-500 shrink-0 shadow-sm"
+            >
+              <i class="fa-solid fa-scale-balanced"></i>
+            </div>
+            <div class="space-y-1 pr-4">
+              <h4 class="font-bold text-slate-900 text-base" data-id="v3-title">
+                Tata Kelola Perusahaan
+              </h4>
+              <p
+                class="text-slate-500 text-xs sm:text-[13px] leading-relaxed"
+                data-id="v3-desc"
+              >
+                Menerapkan prinsip GCG yang transparan, akuntabel, dan
+                bertanggung jawab penuh.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md relative overflow-hidden"
+          >
+            <span
+              class="absolute top-2 right-3 text-[11px] font-bold text-blue-600 bg-blue-50/60 px-2 py-0.5 rounded"
+              >04</span
+            >
+            <div
+              class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-xl text-blue-600 shrink-0 shadow-sm"
+            >
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="space-y-1 pr-4">
+              <h4 class="font-bold text-slate-900 text-base" data-id="v4-title">
+                Achieve Profit
+              </h4>
+              <p
+                class="text-slate-500 text-xs sm:text-[13px] leading-relaxed"
+                data-id="v4-desc"
+              >
+                Menghasilkan nilai ekonomi tinggi demi keberlangsungan Perseroan
+                dan Pemegang Saham.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md relative overflow-hidden"
+          >
+            <span
+              class="absolute top-2 right-3 text-[11px] font-bold text-blue-600 bg-blue-50/60 px-2 py-0.5 rounded"
+              >05</span
+            >
+            <div
+              class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-xl text-amber-500 shrink-0 shadow-sm"
+            >
+              <i class="fa-solid fa-handshake-angle"></i>
+            </div>
+            <div class="space-y-1 pr-4">
+              <h4 class="font-bold text-slate-900 text-base" data-id="v5-title">
+                Kepuasan Pelanggan
+              </h4>
+              <p
+                class="text-slate-500 text-xs sm:text-[13px] leading-relaxed"
+                data-id="v5-desc"
+              >
+                Berkomitmen penuh terhadap kepuasan melalui layanan prima dan
+                produk bermutu tinggi.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-center gap-4 transition-all duration-300 hover:shadow-md relative overflow-hidden"
+          >
+            <span
+              class="absolute top-2 right-3 text-[11px] font-bold text-blue-600 bg-blue-50/60 px-2 py-0.5 rounded"
+              >06</span
+            >
+            <div
+              class="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center text-xl text-blue-600 shrink-0 shadow-sm"
+            >
+              <i class="fa-solid fa-star-of-life"></i>
+            </div>
+            <div class="space-y-1 pr-4">
+              <h4 class="font-bold text-slate-900 text-base" data-id="v6-title">
+                Budaya AKHLAK
+              </h4>
+              <p
+                class="text-slate-500 text-xs sm:text-[13px] leading-relaxed"
+                data-id="v6-desc"
+              >
+                Menerapkan nilai Kerja Amanah, Kompeten, Harmonis, Loyal,
+                Adaptif, dan Kolaboratif.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-10 pt-16 max-w-7xl mx-auto px-4" data-aos="fade-up">
+        <div class="text-center space-y-2">
+          <div class="inline-flex flex-col items-center gap-1.5">
+            <span
+              class="text-[11px] uppercase font-bold tracking-widest text-amber-600"
+              >Safety Culture</span
+            >
+            <div
+              class="w-12 h-0.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600"
+            ></div>
+          </div>
+
+          <h3
+            class="text-3xl font-extrabold tracking-tight text-blue-900 sm:text-4xl"
+            data-id="timeline-main-title"
+          >
+            HSSE Golden Rules
+          </h3>
+
+          <p
+            class="text-slate-500 max-w-2xl mx-auto text-xs sm:text-sm leading-relaxed"
+            data-id="hsse-main-desc"
+          >
+            Sikap dan pedoman utama setiap insan perusahaan dalam menerapkan
+            budaya keselamatan kerja demi mencapai target Zero Accident.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 items-stretch">
+          <div
+            class="relative bg-gradient-to-b from-amber-100 via-yellow-50 to-amber-100/70 p-8 rounded-2xl border border-amber-200 shadow-xl shadow-amber-100/40 flex flex-col items-center text-center overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-200/50"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-400 to-amber-600"
+            ></div>
+
+            <span
+              class="absolute top-5 right-5 text-amber-800 font-extrabold text-xs bg-amber-200/60 px-2.5 py-0.5 rounded-md border border-amber-300/40"
+              >01</span
+            >
+
+            <div
+              class="w-20 h-20 rounded-full border-2 border-amber-300/60 bg-gradient-to-b from-amber-500 to-amber-600 flex items-center justify-center text-3xl text-white mb-6 shadow-md shrink-0"
+            >
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+
+            <h4
+              class="text-xl font-extrabold text-slate-900 mb-3 tracking-tight"
+              data-id="hsse-r1-title"
+            >
+              Patuh
+            </h4>
+            <p
+              class="text-slate-700 text-xs sm:text-[13px] leading-relaxed font-medium"
+              data-id="hsse-r1-desc"
+            >
+              Mematuhi peraturan, prosedur, dan standar K3LL (Kesehatan,
+              Keselamatan, Keamanan, dan Lindung Lingkungan) yang berlaku di
+              lingkungan kerja tanpa pengecualian.
+            </p>
+          </div>
+
+          <div
+            class="relative bg-gradient-to-b from-amber-100 via-yellow-50 to-amber-100/70 p-8 rounded-2xl border border-amber-200 shadow-xl shadow-amber-100/40 flex flex-col items-center text-center overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-200/50"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-400 to-amber-600"
+            ></div>
+
+            <span
+              class="absolute top-5 right-5 text-amber-800 font-extrabold text-xs bg-amber-200/60 px-2.5 py-0.5 rounded-md border border-amber-300/40"
+              >02</span
+            >
+
+            <div
+              class="w-20 h-20 rounded-full border-2 border-amber-300/60 bg-gradient-to-b from-amber-500 to-amber-600 flex items-center justify-center text-3xl text-white mb-6 shadow-md shrink-0"
+            >
+              <i class="fa-solid fa-hand-holding-heart"></i>
+            </div>
+
+            <h4
+              class="text-xl font-extrabold text-slate-900 mb-3 tracking-tight"
+              data-id="hsse-r2-title"
+            >
+              Peduli
+            </h4>
+            <p
+              class="text-slate-700 text-xs sm:text-[13px] leading-relaxed font-medium"
+              data-id="hsse-r2-desc"
+            >
+              Peduli terhadap keselamatan rekan kerja di sekitar, menegur
+              tindakan tidak aman secara santun, serta aktif melaporkan setiap
+              potensi bahaya yang ditemukan.
+            </p>
+          </div>
+
+          <div
+            class="relative bg-gradient-to-b from-amber-100 via-yellow-50 to-amber-100/70 p-8 rounded-2xl border border-amber-200 shadow-xl shadow-amber-100/40 flex flex-col items-center text-center overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-amber-200/50"
+          >
+            <div
+              class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-400 to-amber-600"
+            ></div>
+
+            <span
+              class="absolute top-5 right-5 text-amber-800 font-extrabold text-xs bg-amber-200/60 px-2.5 py-0.5 rounded-md border border-amber-300/40"
+              >03</span
+            >
+
+            <div
+              class="w-20 h-20 rounded-full border-2 border-amber-300/60 bg-gradient-to-b from-amber-500 to-amber-600 flex items-center justify-center text-3xl text-white mb-6 shadow-md shrink-0"
+            >
+              <i class="fa-solid fa-hand"></i>
+            </div>
+
+            <h4
+              class="text-xl font-extrabold text-slate-900 mb-3 tracking-tight"
+              data-id="hsse-r3-title"
+            >
+              Intervensi
+            </h4>
+            <p
+              class="text-slate-700 text-xs sm:text-[13px] leading-relaxed font-medium"
+              data-id="hsse-r3-desc"
+            >
+              Berani melakukan intervensi dan menghentikan pekerjaan seketika
+              jika melihat adanya tindakan tidak aman atau kondisi yang
+              menyimpang dari standar keselamatan.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 py-16" data-aos="fade-up">
+        <div class="grid lg:grid-cols-12 gap-8 items-start relative">
+          <div class="lg:col-span-5 lg:sticky lg:top-24 space-y-3">
+            <h3
+              class="text-3xl font-extrabold tracking-tight text-blue-900 sm:text-4xl"
+              data-id="timeline-main-title"
+            >
+              Pencapaian Perusahaan
+            </h3>
+            <p
+              class="text-slate-500 text-xs sm:text-sm leading-relaxed max-w-md"
+              data-id="timeline-main-desc"
+            >
+              Tonggak penting dalam perjalanan PT Perta-Samtan Gas sejak
+              pendirian hingga menjadi perusahaan LPG terkemuka di Indonesia.
+            </p>
+          </div>
+
+          <div class="lg:col-span-7 relative pl-6 sm:pl-8">
+            <div class="absolute inset-y-0 left-0 w-0.5 bg-slate-200"></div>
+
+            <div class="space-y-8">
+              <div class="relative group">
+                <div
+                  class="absolute -left-[30px] sm:-left-[38px] top-6 w-3.5 h-3.5 rounded-full bg-slate-900 border-4 border-white shadow-sm transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110"
+                ></div>
+
+                <div
+                  class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-md hover:border-slate-300"
+                >
+                  <span
+                    class="text-xs font-bold text-slate-500 tracking-wider block mb-1"
+                    >2008</span
+                  >
+                  <h4
+                    class="text-lg font-bold text-blue-950 mb-3"
+                    data-id="tl-1-title"
+                  >
+                    Pendirian Perseroan
+                  </h4>
+                  <p
+                    class="text-slate-600 text-xs sm:text-[13px] leading-relaxed"
+                    data-id="tl-1-desc"
+                  >
+                    PT Perta-Samtan Gas resmi didirikan pada 7 Mei 2008.
+                    Dimiliki 66% PT Pertamina Gas & 34% ST International Ltd.
+                    untuk memproduksi LPG mendukung program konversi BBM
+                    pemerintah.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative group">
+                <div
+                  class="absolute -left-[30px] sm:-left-[38px] top-6 w-3.5 h-3.5 rounded-full bg-slate-900 border-4 border-white shadow-sm transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110"
+                ></div>
+
+                <div
+                  class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-md hover:border-slate-300"
+                >
+                  <span
+                    class="text-xs font-bold text-slate-500 tracking-wider block mb-1"
+                    >2013</span
+                  >
+                  <h4
+                    class="text-lg font-bold text-blue-950 mb-3"
+                    data-id="tl-2-title"
+                  >
+                    Fase Komersial
+                  </h4>
+                  <p
+                    class="text-slate-600 text-xs sm:text-[13px] leading-relaxed"
+                    data-id="tl-2-desc"
+                  >
+                    Kilang PT Perta-Samtan Gas memasuki fase komersial mulai 1
+                    Mei 2013. Dimulainya produksi penuh LPG dan Kondensat dari
+                    kedua kilang terintegrasi.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative group">
+                <div
+                  class="absolute -left-[30px] sm:-left-[38px] top-6 w-3.5 h-3.5 rounded-full bg-slate-900 border-4 border-white shadow-sm transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110"
+                ></div>
+
+                <div
+                  class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-md hover:border-slate-300"
+                >
+                  <span
+                    class="text-xs font-bold text-slate-500 tracking-wider block mb-1"
+                    >2018</span
+                  >
+                  <h4
+                    class="text-lg font-bold text-blue-950 mb-3"
+                    data-id="tl-3-title"
+                  >
+                    1 Juta Ton LPG
+                  </h4>
+                  <p
+                    class="text-slate-600 text-xs sm:text-[13px] leading-relaxed"
+                  >
+                    Berhasil memproduksi 1 juta ton LPG sejak masa komersial
+                    hingga Oktober 2018 — tonggak bersejarah dalam perjalanan
+                    perusahaan.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative group">
+                <div
+                  class="absolute -left-[30px] sm:-left-[38px] top-6 w-3.5 h-3.5 rounded-full bg-slate-900 border-4 border-white shadow-sm transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110"
+                ></div>
+
+                <div
+                  class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-md hover:border-slate-300"
+                >
+                  <span
+                    class="text-xs font-bold text-slate-500 tracking-wider block mb-1"
+                    >2019</span
+                  >
+                  <h4
+                    class="text-lg font-bold text-blue-950 mb-3"
+                    data-id="tl-3-title"
+                  >
+                    Proper Hijau
+                  </h4>
+                  <p
+                    class="text-slate-600 text-xs sm:text-[13px] leading-relaxed"
+                  >
+                    Meraih penghargaan Proper Hijau dari Kementerian LHK RI atas
+                    komitmen pengelolaan lingkungan hidup yang unggul di seluruh
+                    area operasional.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative group">
+                <div
+                  class="absolute -left-[30px] sm:-left-[38px] top-6 w-3.5 h-3.5 rounded-full bg-slate-900 border-4 border-white shadow-sm transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110"
+                ></div>
+
+                <div
+                  class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-md hover:border-slate-300"
+                >
+                  <span
+                    class="text-xs font-bold text-slate-500 tracking-wider block mb-1"
+                    >2023</span
+                  >
+                  <h4
+                    class="text-lg font-bold text-blue-950 mb-3"
+                    data-id="tl-3-title"
+                  >
+                    Patra Nirbaya Karya Madya
+                  </h4>
+                  <p
+                    class="text-slate-600 text-xs sm:text-[13px] leading-relaxed"
+                  >
+                    Berhasil memproduksi 1 juta ton LPG sejak masa komersial
+                    hingga Oktober 2018 — tonggak bersejarah dalam perjalanan
+                    perusahaan.Meraih Penghargaan Keselamatan Kerja kategori Jam
+                    Kerja Aman — bukti nyata implementasi budaya HSSE yang
+                    konsisten.
+                  </p>
+                </div>
+              </div>
+
+              <div class="relative group">
+                <div
+                  class="absolute -left-[30px] sm:-left-[38px] top-6 w-3.5 h-3.5 rounded-full bg-slate-900 border-4 border-white shadow-sm transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110"
+                ></div>
+                <div
+                  class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-md hover:border-slate-300"
+                >
+                  <span
+                    class="text-xs font-bold text-slate-500 tracking-wider block mb-1"
+                    >2026+</span
+                  >
+                  <h4
+                    class="text-lg font-bold text-blue-950 mb-3"
+                    data-id="tl-3-title"
+                  >
+                    Diversifikasi & Pertumbuhan
+                  </h4>
+                  <p
+                    class="text-slate-600 text-xs sm:text-[13px] leading-relaxed"
+                  >
+                    Eksplorasi peluang bisnis di seluruh Indonesia, penguatan
+                    kemitraan strategis dengan Pemerintah, dan pengembangan
+                    potensi bisnis yang lebih luas.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="space-y-8 py-14 max-w-7xl mx-auto px-4 overflow-hidden"
+        data-aos="fade-up"
+      >
+        <div class="flex flex-col items-center text-center space-y-2">
+          <h3
+            class="text-3xl font-extrabold tracking-tight text-blue-900 sm:text-4xl"
+            data-id="timeline-main-title"
+          >
+            Mitra Strategis & Ekosistem Global
+          </h3>
+          <div
+            class="w-12 h-0.5 bg-gradient-to-r from-blue-500 to-emerald-500 rounded-full"
+          ></div>
+        </div>
+
+        <style>
+          @keyframes logoLoop {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-220px * 7));
+            } /* Sesuai dengan lebar item baru */
+          }
+          .infinite-track {
+            display: flex;
+            width: calc(220px * 14);
+            animation: logoLoop 25s linear infinite; /* Sedikit diperlambat menjadi 25s agar lebih nyaman dibaca */
+          }
+          .infinite-track:hover {
+            animation-play-state: paused; /* Efek interaktif: Berhenti jalan sejenak saat kursor nempel */
+          }
+          .slide-item {
+            width: 220px;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 16px;
+          }
+        </style>
+
+        <div
+          class="relative w-full overflow-hidden bg-slate-50/60 rounded-2xl border border-slate-100 py-8 shadow-inner"
+        >
+          <div
+            class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white via-white/40 to-transparent z-10 pointer-events-none"
+          ></div>
+          <div
+            class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white via-white/40 to-transparent z-10 pointer-events-none"
+          ></div>
+
+          <div class="infinite-track items-center">
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_esdm.png"
+                alt="Kementerian ESDM"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_hulurokan.png"
+                alt="PT Pertamina Hulu Rokan"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_patraniaga.png"
+                alt="PT Pertamina Patra Niaga"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_pertaminagas.png"
+                alt="PT Pertamina Gas"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_pertaminagasnegara.png"
+                alt="PT Pertamina Gas Negara"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_pertaminaruiiplaju.png"
+                alt="PT Pertamina RU III Plaju"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_stinternational.png"
+                alt="ST International Ltd."
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_esdm.png"
+                alt="Kementerian ESDM"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_hulurokan.png"
+                alt="PT Pertamina Hulu Rokan"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_patraniaga.png"
+                alt="PT Pertamina Patra Niaga"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_pertaminagas.png"
+                alt="PT Pertamina Gas"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_pertaminagasnegara.png"
+                alt="PT Pertamina Gas Negara"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_pertaminaruiiplaju.png"
+                alt="PT Pertamina RU III Plaju"
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+            <div class="slide-item">
+              <img
+                src="assets/image/mitra/l_stinternational.png"
+                alt="ST International Ltd."
+                class="h-9 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 py-16 space-y-12" data-aos="fade-up">
+        <div class="text-center space-y-3">
+          <h3
+            class="text-3xl font-extrabold tracking-tight text-blue-900 sm:text-4xl"
+            data-id="timeline-main-title"
+          >
+            Komposisi Pemegang Saham
+          </h3>
+          <p
+            class="text-slate-500 max-w-2xl mx-auto text-xs sm:text-sm leading-relaxed"
+          >
+            Struktur kepemilikan perseroan yang solid, menggabungkan kekuatan
+            energi nasional dan jaringan strategis global.
+          </p>
+        </div>
+
+        <div
+          class="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200/60 p-6 sm:p-10 shadow-xl shadow-slate-100/70 space-y-10 relative overflow-hidden"
+        >
+          <div
+            class="absolute -left-16 -top-16 text-slate-100/50 pointer-events-none transform -rotate-12 scale-150"
+          >
+            🧪🌐🧪🌐
+          </div>
+
+          <div class="space-y-3 relative z-10">
+            <div
+              class="flex justify-between items-center text-[11px] font-bold uppercase tracking-wider text-slate-400 px-1"
+            >
+              <span>Distribusi Pasokan Aliran Saham</span>
+              <span class="text-cyan-600 animate-pulse"
+                >● Total 100% Volume</span
+              >
+            </div>
+
+            <div
+              class="relative w-full h-9 bg-slate-100 rounded-full p-1 border-4 border-slate-300 shadow-inner overflow-hidden flex flex-row"
+            >
+              <div
+                class="h-full rounded-l-full bg-gradient-to-r from-red-600 via-red-500 to-amber-500 relative group transition-all duration-500 hover:brightness-110 flex items-center justify-end pr-4"
+                style="width: 66%"
+              >
+                <div
+                  class="absolute inset-x-0 top-0.5 h-1.5 bg-white/30 rounded-full mx-1"
+                ></div>
+                <span
+                  class="text-white text-[10px] font-black tracking-wider opacity-90 hidden sm:block"
+                  >66% VOL</span
+                >
+
+                <div
+                  class="absolute right-0 top-[-4px] bottom-[-4px] w-2 bg-amber-500 border border-slate-400 z-10 shadow-md"
+                ></div>
+              </div>
+
+              <div
+                class="h-full rounded-r-full bg-gradient-to-r from-indigo-950 via-slate-900 to-slate-800 relative group transition-all duration-500 hover:brightness-110 flex items-center justify-start pl-4"
+                style="width: 34%"
+              >
+                <div
+                  class="absolute inset-x-0 top-0.5 h-1.5 bg-white/10 rounded-full mx-1"
+                ></div>
+                <span
+                  class="text-slate-300 text-[10px] font-black tracking-wider opacity-90 hidden sm:block"
+                  >34% VOL</span
+                >
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-1 text-xs">
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-red-600"></div>
+                <span class="font-bold text-slate-800 text-[11px] sm:text-xs"
+                  >PT Pertamina Gas (66%)</span
+                >
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-3 h-3 rounded-full bg-indigo-950"></div>
+                <span class="font-bold text-slate-800 text-[11px] sm:text-xs"
+                  >ST International Ltd. (34%)</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-6 pt-4 relative z-10">
+            <div
+              class="group p-6 rounded-2xl bg-gradient-to-b from-slate-50 to-white border border-slate-100 transition-all duration-300 hover:border-red-300 hover:shadow-lg hover:shadow-red-50 flex flex-col justify-between min-h-[140px]"
+            >
+              <div
+                class="absolute -right-6 -bottom-6 text-red-600/5 pointer-events-none transform rotate-45 scale-150"
+              >
+                🧪
+              </div>
+
+              <div class="space-y-1.5">
+                <div
+                  class="text-5xl sm:text-6xl font-black tracking-tight text-red-600 flex items-baseline"
+                >
+                  66<span class="text-2xl font-extrabold ml-1">%</span>
+                </div>
+                <div class="w-10 h-0.5 bg-red-500 rounded"></div>
+              </div>
+
+              <div class="pt-4 shrink-0">
+                <img
+                  src="assets/image/mitra/l_pertaminagas.png"
+                  alt="Pertamina Gas Logo"
+                  class="h-7 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            <div
+              class="group p-6 rounded-2xl bg-gradient-to-b from-slate-50 to-white border border-slate-100 transition-all duration-300 hover:border-indigo-300 hover:shadow-lg hover:shadow-indigo-50 flex flex-col justify-between min-h-[140px]"
+            >
+              <div
+                class="absolute -right-6 -bottom-6 text-indigo-900/5 pointer-events-none transform rotate-45 scale-150"
+              >
+                🌐
+              </div>
+
+              <div class="space-y-1.5">
+                <div
+                  class="text-5xl sm:text-6xl font-black tracking-tight text-indigo-950 flex items-baseline"
+                >
+                  34<span class="text-2xl font-extrabold ml-1">%</span>
+                </div>
+                <div class="w-10 h-0.5 bg-indigo-950 rounded"></div>
+              </div>
+
+              <div class="pt-4 shrink-0">
+                <img
+                  src="assets/image/mitra/l_stinternational.png"
+                  alt="ST International Logo"
+                  class="h-7 w-auto object-contain filter grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-12 py-16 max-w-7xl mx-auto px-4" data-aos="fade-up">
+        <div class="space-y-3 max-w-3xl">
+          <div class="inline-flex items-center gap-2">
+            <span
+              class="text-[11px] uppercase font-bold tracking-widest text-blue-600"
+              >Why Choose Us</span
+            >
+            <div class="w-8 h-[2px] bg-blue-600"></div>
+          </div>
+
+          <h3
+            class="text-3xl font-extrabold tracking-tight text-blue-900 sm:text-4xl"
+            data-id="timeline-main-title"
+          >
+            Keunggulan Perusahaan
+          </h3>
+          <p
+            class="text-slate-500 text-xs sm:text-sm leading-relaxed"
+            data-id="advantages-main-desc"
+          >
+            Komitmen kami dalam menjaga standar tinggi operasional dan finansial
+            guna memberikan nilai terbaik bagi seluruh pemangku kepentingan.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+          <div
+            class="group bg-white rounded-2xl border border-slate-200/60 shadow-xl shadow-slate-100/40 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-100/50"
+          >
+            <div
+              class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 shrink-0"
+            >
+              <img
+                src="assets/image/keunggulan/keunggulan1.jpg"
+                alt="Keunggulan Operasional"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+              ></div>
+            </div>
+
+            <div class="p-5 flex-grow flex flex-col gap-2 relative">
+              <span
+                class="text-[11px] font-extrabold text-blue-600 tracking-wider"
+                >01</span
+              >
+              <h4
+                class="text-base font-bold text-slate-900 group-hover:text-blue-700 transition-colors duration-300"
+                data-id="adv-1-title"
+              >
+                Keunggulan Operasional
+              </h4>
+              <p
+                class="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed"
+                data-id="adv-1-desc"
+              >
+                Konsisten mencapai produktivitas, stabilitas, dan efisiensi
+                tinggi dengan rekam jejak keberhasilan sejak fase komersial 1
+                Mei 2013.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group bg-white rounded-2xl border border-slate-200/60 shadow-xl shadow-slate-100/40 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-100/50"
+          >
+            <div
+              class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 shrink-0"
+            >
+              <img
+                src="assets/image/keunggulan/keunggulan2.jpg"
+                alt="Keuangan Stabil"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+              ></div>
+            </div>
+
+            <div class="p-5 flex-grow flex flex-col gap-2 relative">
+              <span
+                class="text-[11px] font-extrabold text-blue-600 tracking-wider"
+                >02</span
+              >
+              <h4
+                class="text-base font-bold text-slate-900 group-hover:text-blue-700 transition-colors duration-300"
+                data-id="adv-2-title"
+              >
+                Keuangan Stabil
+              </h4>
+              <p
+                class="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed"
+                data-id="adv-2-desc"
+              >
+                Posisi keuangan kuat tanpa beban utang finansial, dengan
+                manajemen arus kas efektif untuk peluang investasi masa depan.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group bg-white rounded-2xl border border-slate-200/60 shadow-xl shadow-slate-100/40 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-100/50"
+          >
+            <div
+              class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 shrink-0"
+            >
+              <img
+                src="assets/image/keunggulan/keunggulan3.jpg"
+                alt="Kemitraan Strategis"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+              ></div>
+            </div>
+
+            <div class="p-5 flex-grow flex flex-col gap-2 relative">
+              <span
+                class="text-[11px] font-extrabold text-blue-600 tracking-wider"
+                >03</span
+              >
+              <h4
+                class="text-base font-bold text-slate-900 group-hover:text-blue-700 transition-colors duration-300"
+                data-id="adv-3-title"
+              >
+                Kemitraan Strategis
+              </h4>
+              <p
+                class="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed"
+                data-id="adv-3-desc"
+              >
+                Kemitraan strategis dengan Pemerintah Indonesia dalam produksi
+                LPG domestik (PSO), memperkuat posisi dan kapabilitas Perseroan.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="group bg-white rounded-2xl border border-slate-200/60 shadow-xl shadow-slate-100/40 overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-blue-100/50"
+          >
+            <div
+              class="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 shrink-0"
+            >
+              <img
+                src="assets/image/keunggulan/keunggulan4.jpg"
+                alt="Peluang Bisnis Beragam"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+              ></div>
+            </div>
+
+            <div class="p-5 flex-grow flex flex-col gap-2 relative">
+              <span
+                class="text-[11px] font-extrabold text-blue-600 tracking-wider"
+                >04</span
+              >
+              <h4
+                class="text-base font-bold text-slate-900 group-hover:text-blue-700 transition-colors duration-300"
+                data-id="adv-4-title"
+              >
+                Peluang Bisnis Beragam
+              </h4>
+              <p
+                class="text-slate-600 text-xs sm:text-[12.5px] leading-relaxed"
+                data-id="adv-4-desc"
+              >
+                Rekam jejak perusahaan memungkinkan eksplorasi peluang bisnis di
+                seluruh wilayah Indonesia dengan potensi pertumbuhan luas.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="space-y-10 py-16 max-w-7xl mx-auto px-4 overflow-hidden"
+        data-aos="fade-up"
+      >
+        <div class="text-center space-y-2">
+          <div class="inline-flex flex-col items-center gap-1.5">
+            <span
+              class="text-[11px] uppercase font-bold tracking-widest text-blue-600"
+              >Achievements</span
+            >
+            <div
+              class="w-12 h-0.5 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600"
+            ></div>
+          </div>
+          
+          <h3
+            class="text-3xl font-extrabold tracking-tight text-blue-900 sm:text-4xl"
+            data-id="timeline-main-title"
+          >
+            Penghargaan & Sertifikasi
+          </h3>
+          <p
+          <p
+            class="text-slate-500 max-w-2xl mx-auto text-xs sm:text-sm leading-relaxed"
+            data-id="awards-main-desc"
+          >
+            Bukti komitmen nyata PT Perta-Samtan Gas dalam mempertahankan
+            standar mutu, keselamatan kerja, dan keberlanjutan lingkungan di
+            tingkat nasional.
+          </p>
+        </div>
+
+        <style>
+          @keyframes awardScroll {
+            0% {
+              transform: translateX(0);
+            }
+            100% {
+              transform: translateX(calc(-320px * 4));
+            } /* Menggeser sebanyak 4 kartu utama */
+          }
+          .award-track {
+            display: flex;
+            width: calc(320px * 8); /* Total 8 kartu (4 asli + 4 duplikat) */
+            animation: awardScroll 25s linear infinite;
+          }
+          .award-track:hover {
+            animation-play-state: paused; /* Slider otomatis berhenti sejenak saat kursor mouse menyentuh kartu */
+          }
+          .award-card {
+            width: 320px;
+            flex-shrink: 0;
+            padding: 0 12px; /* Jarak gap antar kartu horizontal */
+          }
+        </style>
+
+        <div class="relative w-full overflow-hidden py-4">
+          <div
+            class="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none"
+          ></div>
+          <div
+            class="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none"
+          ></div>
+
+          <div class="award-track">
+            <div class="award-card">
+              <div
+                class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-lg shadow-slate-100/50 flex flex-col items-center text-center h-full transition-all duration-300 hover:border-blue-400"
+              >
+                <div
+                  class="w-full aspect-[4/3] rounded-xl bg-slate-50 border border-slate-100 p-4 flex items-center justify-center mb-5 shrink-0"
+                >
+                  <img
+                    src="assets/image/penghargaan/penghargaan1.jpg"
+                    alt="Patra Nirbhaya Karya"
+                    class="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <h4
+                  class="font-extrabold text-slate-900 text-sm mb-1 leading-snug"
+                >
+                  Patra Nirbhaya Karya Utama
+                </h4>
+                <span
+                  class="text-[11px] font-bold text-blue-600 uppercase tracking-wider mb-2 block"
+                  >Kementerian ESDM</span
+                >
+                <p class="text-slate-500 text-xs leading-relaxed">
+                  Penghargaan atas komitmen tinggi dalam menjaga keselamatan
+                  kerja tanpa kecelakaan (*Zero Accident*).
+                </p>
+              </div>
+            </div>
+
+            <div class="award-card">
+              <div
+                class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-lg shadow-slate-100/50 flex flex-col items-center text-center h-full transition-all duration-300 hover:border-blue-400"
+              >
+                <div
+                  class="w-full aspect-[4/3] rounded-xl bg-slate-50 border border-slate-100 p-4 flex items-center justify-center mb-5 shrink-0"
+                >
+                  <img
+                    src="assets/image/penghargaan/penghargaan2.jpg"
+                    alt="PROPER Biru"
+                    class="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <h4
+                  class="font-extrabold text-slate-900 text-sm mb-1 leading-snug"
+                >
+                  Penghargaan PROPER Biru
+                </h4>
+                <span
+                  class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider mb-2 block"
+                  >KLHK RI</span
+                >
+                <p class="text-slate-500 text-xs leading-relaxed">
+                  Apresiasi atas pengelolaan lingkungan hidup yang taat terhadap
+                  regulasi dan norma hukum yang berlaku.
+                </p>
+              </div>
+            </div>
+
+            <div class="award-card">
+              <div
+                class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-lg shadow-slate-100/50 flex flex-col items-center text-center h-full transition-all duration-300 hover:border-blue-400"
+              >
+                <div
+                  class="w-full aspect-[4/3] rounded-xl bg-slate-50 border border-slate-100 p-4 flex items-center justify-center mb-5 shrink-0"
+                >
+                  <img
+                    src="assets/image/penghargaan/penghargaan3.jpg"
+                    alt="ISO 9001:2015"
+                    class="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <h4
+                  class="font-extrabold text-slate-900 text-sm mb-1 leading-snug"
+                >
+                  Sertifikasi ISO 9001:2015
+                </h4>
+                <span
+                  class="text-[11px] font-bold text-amber-600 uppercase tracking-wider mb-2 block"
+                  >Quality Management</span
+                >
+                <p class="text-slate-500 text-xs leading-relaxed">
+                  Sertifikasi internasional untuk sistem manajemen mutu dan
+                  kualitas layanan operasional kilang gas.
+                </p>
+              </div>
+            </div>
+
+            <div class="award-card">
+              <div
+                class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-lg shadow-slate-100/50 flex flex-col items-center text-center h-full transition-all duration-300 hover:border-blue-400"
+              >
+                <div
+                  class="w-full aspect-[4/3] rounded-xl bg-slate-50 border border-slate-100 p-4 flex items-center justify-center mb-5 shrink-0"
+                >
+                  <img
+                    src="assets/image/penghargaan/penghargaan4.jpg"
+                    alt="ISO 45001:2018"
+                    class="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <h4
+                  class="font-extrabold text-slate-900 text-sm mb-1 leading-snug"
+                >
+                  Sertifikasi ISO 45001:2018
+                </h4>
+                <span
+                  class="text-[11px] font-bold text-red-600 uppercase tracking-wider mb-2 block"
+                  >OH&S Management</span
+                >
+                <p class="text-slate-500 text-xs leading-relaxed">
+                  Pengakuan global terhadap penerapan sistem manajemen kesehatan
+                  dan keselamatan kerja yang komprehensif.
+                </p>
+              </div>
+            </div>
+
+            <div class="award-card">
+              <div
+                class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-lg shadow-slate-100/50 flex flex-col items-center text-center h-full transition-all duration-300 hover:border-blue-400"
+              >
+                <div
+                  class="w-full aspect-[4/3] rounded-xl bg-slate-50 border border-slate-100 p-4 flex items-center justify-center mb-5 shrink-0"
+                >
+                  <img
+                    src="assets/image/penghargaan/penghargaan5.jpg"
+                    alt="Patra Nirbhaya Karya"
+                    class="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <h4
+                  class="font-extrabold text-slate-900 text-sm mb-1 leading-snug"
+                >
+                  Patra Nirbhaya Karya Utama
+                </h4>
+                <span
+                  class="text-[11px] font-bold text-blue-600 uppercase tracking-wider mb-2 block"
+                  >Kementerian ESDM</span
+                >
+                <p class="text-slate-500 text-xs leading-relaxed">
+                  Penghargaan atas komitmen tinggi dalam menjaga keselamatan
+                  kerja tanpa kecelakaan (*Zero Accident*).
+                </p>
+              </div>
+            </div>
+
+            <div class="award-card">
+              <div
+                class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-lg shadow-slate-100/50 flex flex-col items-center text-center h-full transition-all duration-300 hover:border-blue-400"
+              >
+                <div
+                  class="w-full aspect-[4/3] rounded-xl bg-slate-50 border border-slate-100 p-4 flex items-center justify-center mb-5 shrink-0"
+                >
+                  <img
+                    src="assets/image/penghargaan/penghargaan6.jpg"
+                    alt="PROPER Biru"
+                    class="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <h4
+                  class="font-extrabold text-slate-900 text-sm mb-1 leading-snug"
+                >
+                  Penghargaan PROPER Biru
+                </h4>
+                <span
+                  class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider mb-2 block"
+                  >KLHK RI</span
+                >
+                <p class="text-slate-500 text-xs leading-relaxed">
+                  Apresiasi atas pengelolaan lingkungan hidup yang taat terhadap
+                  regulasi dan norma hukum yang berlaku.
+                </p>
+              </div>
+            </div>
+
+            <div class="award-card">
+              <div
+                class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-lg shadow-slate-100/50 flex flex-col items-center text-center h-full transition-all duration-300 hover:border-blue-400"
+              >
+                <div
+                  class="w-full aspect-[4/3] rounded-xl bg-slate-50 border border-slate-100 p-4 flex items-center justify-center mb-5 shrink-0"
+                >
+                  <img
+                    src="assets/image/penghargaan/penghargaan7.jpg"
+                    alt="ISO 9001:2015"
+                    class="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <h4
+                  class="font-extrabold text-slate-900 text-sm mb-1 leading-snug"
+                >
+                  Sertifikasi ISO 9001:2015
+                </h4>
+                <span
+                  class="text-[11px] font-bold text-amber-600 uppercase tracking-wider mb-2 block"
+                  >Quality Management</span
+                >
+                <p class="text-slate-500 text-xs leading-relaxed">
+                  Sertifikasi internasional untuk sistem manajemen mutu dan
+                  kualitas layanan operasional kilang gas.
+                </p>
+              </div>
+            </div>
+
+            <div class="award-card">
+              <div
+                class="bg-white p-6 rounded-2xl border border-slate-200/70 shadow-lg shadow-slate-100/50 flex flex-col items-center text-center h-full transition-all duration-300 hover:border-blue-400"
+              >
+                <div
+                  class="w-full aspect-[4/3] rounded-xl bg-slate-50 border border-slate-100 p-4 flex items-center justify-center mb-5 shrink-0"
+                >
+                  <img
+                    src="assets/image/penghargaan/penghargaan8.jpg"
+                    alt="ISO 45001:2018"
+                    class="max-h-full max-w-full object-contain"
+                  />
+                </div>
+                <h4
+                  class="font-extrabold text-slate-900 text-sm mb-1 leading-snug"
+                >
+                  Sertifikasi ISO 45001:2018
+                </h4>
+                <span
+                  class="text-[11px] font-bold text-red-600 uppercase tracking-wider mb-2 block"
+                  >OH&S Management</span
+                >
+                <p class="text-slate-500 text-xs leading-relaxed">
+                  Pengakuan global terhadap penerapan sistem manajemen kesehatan
+                  dan keselamatan kerja yang komprehensif.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- End About -->
+
+    <!-- Bisnis -->
+    <section id="bisnis" class="py-24 bg-slate-900 text-white">
+      <div class="w-full bg-[#0B132B] py-20 relative overflow-hidden">
+        <div
+          class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none"
+        ></div>
+        <div
+          class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-4 space-y-16 relative z-10">
+          <div class="text-center space-y-3">
+            <div class="inline-flex flex-col items-center gap-2">
+              <span
+                class="text-xs uppercase font-extrabold tracking-widest bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent"
+                >Alur Produksi</span
+              >
+              <div
+                class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
+              ></div>
+            </div>
+            <h3
+              class="text-3xl font-black tracking-tight text-white sm:text-5xl"
+            >
+              Proses Bisnis Utama
+            </h3>
+            <p
+              class="text-slate-400 max-w-2xl mx-auto text-xs sm:text-sm leading-relaxed"
+            >
+              Visualisasi sistem pengolahan dan rantai distribusi gas
+              terintegrasi dari hulu hingga hilir secara efisien dan
+              berkelanjutan.
+            </p>
+          </div>
+
+          <div class="grid lg:grid-cols-12 gap-10 items-start">
+            <div class="lg:col-span-5 lg:sticky lg:top-28 space-y-4">
+              <div
+                class="bg-slate-900/80 rounded-3xl overflow-hidden shadow-2xl border border-slate-700/50 p-3 relative group backdrop-blur-md"
+              >
+                <div
+                  class="rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-video lg:aspect-[4/3] relative"
+                >
+                  <img
+                    src="assets/image/proses/alur_proses_NGL.jpg"
+                    alt="Peta Alur Proses NGL"
+                    class="w-full h-full object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div
+                    class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-60"
+                  ></div>
+                </div>
+
+                <div class="absolute bottom-6 left-6">
+                  <span
+                    class="inline-flex items-center gap-1.5 text-[11px] font-extrabold text-cyan-400 bg-cyan-950/80 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-cyan-500/30 shadow-lg shadow-cyan-950/50"
+                  >
+                    <span
+                      class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"
+                    ></span>
+                    🗺️ Peta Operasional Makro
+                  </span>
+                </div>
+              </div>
+              <p
+                class="text-slate-400 text-[11px] sm:text-xs leading-relaxed text-center italic opacity-80"
+              >
+                *Arahkan kursor atau scroll pada kartu kanan untuk membaca
+                detail teknis.
+              </p>
+            </div>
+
+            <div class="lg:col-span-7 relative min-h-screen">
+              <div
+                class="absolute left-11 top-8 bottom-8 w-0.5 border-l-2 border-dashed border-slate-700/60 z-0 hidden sm:block"
+              ></div>
+
+              <div class="space-y-6 relative z-10">
+                <div
+                  class="group bg-slate-900/40 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 transition-all duration-300 hover:border-blue-500 hover:bg-slate-900/90 hover:shadow-xl hover:shadow-blue-950/30 flex flex-col sm:flex-row gap-5 relative overflow-hidden"
+                >
+                  <div
+                    class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+
+                  <div
+                    class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center font-black text-blue-400 shrink-0 text-lg group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-cyan-500 group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-inner"
+                  >
+                    01
+                  </div>
+                  <div class="space-y-2">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <h4
+                        class="font-bold text-white text-base tracking-wide transition-colors duration-300 group-hover:text-cyan-400"
+                      >
+                        Feed Gas Masuk
+                      </h4>
+                      <span
+                        class="text-[10px] font-bold bg-blue-950/80 text-blue-400 border border-blue-900/50 px-2.5 py-0.5 rounded-full"
+                        >Hulu Proses</span
+                      >
+                    </div>
+                    <p
+                      class="text-slate-400 text-xs sm:text-[13px] leading-relaxed group-hover:text-slate-300 transition-colors duration-300"
+                    >
+                      Gas alam mentah dialirkan dari sumber terbuka (<span
+                        class="text-slate-200 font-medium"
+                        >*raw gas sources*</span
+                      >) menuju fasilitas pemrosesan awal untuk memisahkan
+                      kandungan pengotor (*impurities*).
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="group bg-slate-900/40 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 transition-all duration-300 hover:border-blue-500 hover:bg-slate-900/90 hover:shadow-xl hover:shadow-blue-950/30 flex flex-col sm:flex-row gap-5 relative overflow-hidden"
+                >
+                  <div
+                    class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+
+                  <div
+                    class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center font-black text-blue-400 shrink-0 text-lg group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-cyan-500 group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-inner"
+                  >
+                    02
+                  </div>
+                  <div class="space-y-2">
+                    <h4
+                      class="font-bold text-white text-base tracking-wide transition-colors duration-300 group-hover:text-cyan-400"
+                    >
+                      Ekstraksi NGL
+                    </h4>
+                    <p
+                      class="text-slate-400 text-xs sm:text-[13px] leading-relaxed group-hover:text-slate-300 transition-colors duration-300"
+                    >
+                      Proses pemisahan komponen cairan gas alam atau
+                      <span class="text-cyan-400 font-semibold"
+                        >Natural Gas Liquids (NGL)</span
+                      >
+                      utama dari gas alam kering di Kilang Ekstraksi Prabumulih.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="group bg-slate-900/40 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 transition-all duration-300 hover:border-blue-500 hover:bg-slate-900/90 hover:shadow-xl hover:shadow-blue-950/30 flex flex-col sm:flex-row gap-5 relative overflow-hidden"
+                >
+                  <div
+                    class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+
+                  <div
+                    class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center font-black text-blue-400 shrink-0 text-lg group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-cyan-500 group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-inner"
+                  >
+                    03
+                  </div>
+                  <div class="space-y-2">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <h4
+                        class="font-bold text-white text-base tracking-wide transition-colors duration-300 group-hover:text-cyan-400"
+                      >
+                        Pipa Transportasi NGL
+                      </h4>
+                      <span
+                        class="text-[10px] font-extrabold bg-amber-950/80 text-amber-400 border border-amber-900/50 px-2.5 py-0.5 rounded-full"
+                        >⚡ Jarak Pipa ±90 KM</span
+                      >
+                    </div>
+                    <p
+                      class="text-slate-400 text-xs sm:text-[13px] leading-relaxed group-hover:text-slate-300 transition-colors duration-300"
+                    >
+                      Produk NGL bertekanan tinggi ditransfer aman melewati pipa
+                      transmisi bawah tanah sepanjang
+                      <span class="text-white font-semibold">±90 KM</span> dari
+                      Prabumulih menuju Kilang Fraksinasi Sungai Gerong.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="group bg-slate-900/40 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 transition-all duration-300 hover:border-blue-500 hover:bg-slate-900/90 hover:shadow-xl hover:shadow-blue-950/30 flex flex-col sm:flex-row gap-5 relative overflow-hidden"
+                >
+                  <div
+                    class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+
+                  <div
+                    class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center font-black text-blue-400 shrink-0 text-lg group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:to-cyan-500 group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-inner"
+                  >
+                    04
+                  </div>
+                  <div class="space-y-2">
+                    <h4
+                      class="font-bold text-white text-base tracking-wide transition-colors duration-300 group-hover:text-cyan-400"
+                    >
+                      Fraksinasi NGL
+                    </h4>
+                    <p
+                      class="text-slate-400 text-xs sm:text-[13px] leading-relaxed group-hover:text-slate-300 transition-colors duration-300"
+                    >
+                      NGL diproses melalui menara distilasi bertingkat di Sungai
+                      Gerong untuk dipisahkan menjadi komponen komersial
+                      berharga tinggi seperti
+                      <span class="text-white font-semibold"
+                        >LPG (Propana & Butana)</span
+                      >
+                      serta produk
+                      <span class="text-white font-semibold">Kondensat</span>.
+                    </p>
+                  </div>
+                </div>
+
+                <div
+                  class="group bg-slate-900/40 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 transition-all duration-300 hover:border-emerald-500 hover:bg-slate-900/90 hover:shadow-xl hover:shadow-emerald-950/30 flex flex-col sm:flex-row gap-5 relative overflow-hidden"
+                >
+                  <div
+                    class="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-emerald-500 to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  ></div>
+
+                  <div
+                    class="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center font-black text-emerald-400 shrink-0 text-lg group-hover:bg-gradient-to-br group-hover:from-emerald-600 group-hover:to-teal-500 group-hover:text-white group-hover:border-transparent transition-all duration-300 shadow-inner"
+                  >
+                    05
+                  </div>
+                  <div class="space-y-2">
+                    <div class="flex flex-wrap items-center gap-2">
+                      <h4
+                        class="font-bold text-white text-base tracking-wide transition-colors duration-300 group-hover:text-emerald-400"
+                      >
+                        Distribusi Produk
+                      </h4>
+                      <span
+                        class="text-[10px] font-bold bg-emerald-950/80 text-emerald-400 border border-emerald-900/50 px-2.5 py-0.5 rounded-full"
+                        >Hilir Distribusi</span
+                      >
+                    </div>
+                    <p
+                      class="text-slate-400 text-xs sm:text-[13px] leading-relaxed group-hover:text-slate-300 transition-colors duration-300"
+                    >
+                      Tahap akhir pengapalan energi. Produk disalurkan untuk
+                      kebutuhan industri dan masyarakat domestik via kapal
+                      tanker laut, armada truk tangki, maupun pasar ekspor
+                      regional.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full bg-[#070D1F] py-24 relative overflow-hidden font-sans">
+        <div
+          class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] pointer-events-none"
+        ></div>
+        <div
+          class="absolute bottom-10 right-10 w-72 h-72 bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none"
+        ></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+          <div class="mb-16 space-y-3">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1 bg-blue-950/50 rounded-full border border-blue-500/20"
+            >
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              <span
+                class="text-[10px] font-bold tracking-widest text-cyan-400 uppercase"
+                >AREA OPERASI</span
+              >
+            </div>
+            <h2
+              class="text-3xl md:text-4xl font-black text-white tracking-tight"
+            >
+              Fasilitas
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400"
+                >Operasional</span
+              >
+            </h2>
+            <p class="text-slate-400 text-sm max-w-xl leading-relaxed">
+              Dua kilang terintegrasi di Sumatera Selatan, dihubungkan oleh
+              jaringan pipa NGL sepanjang
+              <span class="text-cyan-400 font-semibold">90 km</span> untuk
+              memastikan distribusi energi nasional yang andal.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            <div
+              class="lg:col-span-6 group relative rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-900/40 backdrop-blur-md flex flex-col justify-between transition-all duration-500 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1"
+            >
+              <div class="relative aspect-video w-full overflow-hidden">
+                <img
+                  src="assets/image/images/kilang1.jpeg"
+                  alt="Kilang Ekstraksi Prabumulih"
+                  class="w-full h-full object-cover object-left transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"
+                ></div>
+                <span
+                  class="absolute top-4 left-4 text-[10px] font-bold bg-blue-600/90 text-white px-3 py-1 rounded-md tracking-wider uppercase backdrop-blur-sm"
+                  >Primary Extract</span
+                >
+              </div>
+
+              <div
+                class="p-8 space-y-4 flex-grow flex flex-col justify-between"
+              >
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2 text-xs text-slate-400">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-blue-400"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                      />
+                    </svg>
+                    Prabumulih, Sumatera Selatan
+                  </div>
+                  <h3
+                    class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors"
+                  >
+                    Kilang Ekstraksi Prabumulih
+                  </h3>
+                  <p
+                    class="text-slate-400 text-xs sm:text-sm leading-relaxed font-light"
+                  >
+                    Berfungsi mengekstrak komponen NGL dari gas alam. Feed gas
+                    diperoleh dari PT Pertamina Hulu Rokan Regional 1 Zona 4
+                    dengan volume rata-rata
+                    <span class="text-slate-200 font-medium">±200 mmscfd</span>.
+                  </p>
+                </div>
+
+                <div
+                  class="pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500"
+                >
+                  <span>Kapasitas Optimal</span>
+                  <span
+                    class="flex items-center gap-1.5 text-emerald-400 font-medium"
+                  >
+                    <span
+                      class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"
+                    ></span>
+                    Active Operational
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="lg:col-span-6 group relative rounded-2xl overflow-hidden border border-slate-800/80 bg-slate-900/40 backdrop-blur-md flex flex-col justify-between transition-all duration-500 hover:border-cyan-500/50 hover:shadow-2xl hover:shadow-cyan-500/10 hover:-translate-y-1"
+            >
+              <div class="relative aspect-video w-full overflow-hidden">
+                <img
+                  src="assets/image/images/kilang2.jpeg"
+                  alt="Kilang Fraksinasi Banyuasin"
+                  class="w-full h-full object-cover object-right transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"
+                ></div>
+                <span
+                  class="absolute top-4 left-4 text-[10px] font-bold bg-cyan-600/90 text-white px-3 py-1 rounded-md tracking-wider uppercase backdrop-blur-sm"
+                  >Fractionation Plant</span
+                >
+              </div>
+
+              <div
+                class="p-8 space-y-4 flex-grow flex flex-col justify-between"
+              >
+                <div class="space-y-2">
+                  <div class="flex items-center gap-2 text-xs text-slate-400">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4 text-cyan-400"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                      />
+                    </svg>
+                    Banyuasin, Sumatera Selatan
+                  </div>
+                  <h3
+                    class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors"
+                  >
+                    Kilang Fraksinasi Banyuasin
+                  </h3>
+                  <p
+                    class="text-slate-400 text-xs sm:text-sm leading-relaxed font-light"
+                  >
+                    Memproses NGL dari Prabumulih menjadi
+                    <span class="text-slate-200 font-medium"
+                      >LPG Mixed (710 MT/hari)</span
+                    >
+                    dan
+                    <span class="text-slate-200 font-medium"
+                      >Kondensat (2.200 bbl/hari)</span
+                    >
+                    untuk kebutuhan distribusi domestik nasional.
+                  </p>
+                </div>
+
+                <div
+                  class="pt-4 border-t border-slate-800/60 flex items-center justify-between text-xs text-slate-500"
+                >
+                  <span>Standar Keselamatan</span>
+                  <span
+                    class="flex items-center gap-1.5 text-cyan-400 font-medium"
+                  >
+                    🛡️ Safety First
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+      <!-- produk -->
+       <section class="py-24 bg-slate-50 border-t border-slate-100">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center space-y-3 mb-16">
+          <span
+            class="text-xs font-bold uppercase tracking-widest text-blue-600"
+            >Output Produksi</span
+          >
+          <h2 class="text-3xl md:text-4xl font-extrabold text-slate-900">
+            Produk Utama Perusahaan
+          </h2>
+          <p class="text-slate-500 text-sm max-w-xl mx-auto">
+            Hasil olahan komoditas gas alam bernilai tinggi dari dua kilang
+            terintegrasi yang mendukung program kedaulatan energi nasional.
+          </p>
+        </div>
+
+        <div
+          class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200"
+        >
+          <div
+            class="p-8 md:p-12 space-y-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors group"
+          >
+            <div class="space-y-4">
+              <div class="flex justify-between items-start">
+                <div
+                  class="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-300"
+                >
+                  <i class="fa-solid fa-gas-pump"></i>
+                </div>
+                <span class="text-xs font-bold text-slate-300">01</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900">LPG Mixed</h3>
+              <p class="text-sm text-slate-500 leading-relaxed">
+                Produk utama berupa gas cair campuran Propane + Butane dengan
+                kapasitas produksi solid
+                <strong class="text-slate-800 font-semibold">710 MT/hari</strong
+                >. Disalurkan langsung ke PT Pertamina Patra Niaga demi
+                pemenuhan Public Service Obligation (PSO) domestik.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="p-8 md:p-12 space-y-6 flex flex-col justify-between hover:bg-slate-50/50 transition-colors group"
+          >
+            <div class="space-y-4">
+              <div class="flex justify-between items-start">
+                <div
+                  class="w-14 h-14 rounded-2xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-2xl group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300"
+                >
+                  <i class="fa-solid fa-fire-flame-simple"></i>
+                </div>
+                <span class="text-xs font-bold text-slate-300">02</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900">Kondensat</h3>
+              <p class="text-sm text-slate-500 leading-relaxed">
+                Komoditas sampingan hasil fraksinasi berkualitas ultra-tinggi
+                sebesar
+                <strong class="text-slate-800 font-semibold"
+                  >2.200 bbl/hari</strong
+                >. Dikembalikan ke hulu ke PT Pertamina Hulu Rokan guna
+                menyokong optimasi pasokan minyak mentah nasional.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      
+
+    </section>
+
+    <!-- End Bisnis -->
+
+    <!-- Kontribusi -->
+    <section
+      id="contribution"
+      class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12"
+    >
+      <div class="text-center space-y-2">
+        <h2
+          class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl"
+          data-id="contrib-title"
+        >
+          Kontribusi Kami
+        </h2>
+        <p
+          class="text-slate-500 max-w-lg mx-auto text-xs sm:text-sm"
+          data-id="contrib-desc"
+        >
+          Berkomitmen penuh membangun kemandirian ekonomi masyarakat sekitar
+          wilayah kerja.
+        </p>
+      </div>
+
+      <div
+        class="relative max-w-4xl mx-auto overflow-hidden rounded-2xl shadow-xl bg-slate-900 text-white min-h-[400px] flex items-center"
+      >
+        <div
+          id="csr-slider"
+          class="flex transition-transform duration-700 w-full"
+        >
+          <div
+            class="min-w-full bg-cover bg-center p-8 sm:p-16 flex flex-col justify-end min-h-[400px]"
+            style="
+              background-image:
+                linear-gradient(
+                  to top,
+                  rgba(15, 23, 42, 0.95) 30%,
+                  rgba(15, 23, 42, 0.4)
+                ),
+                url(&quot;https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80&w=1200&quot;);
+            "
+          >
+            <div class="space-y-2">
+              <span
+                class="bg-emerald-500 text-slate-900 font-bold text-[10px] px-2 py-1 rounded"
+                >PENDIDIKAN</span
+              >
+              <h4 class="text-xl sm:text-2xl font-bold" data-id="csr1-title">
+                Beasiswa Bakti Energi
+              </h4>
+              <p
+                class="text-slate-300 text-xs sm:text-sm max-w-xl"
+                data-id="csr1-desc"
+              >
+                Pemberian bantuan dana pendidikan penuh bagi generasi muda
+                berprestasi di area operasional pesisir.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="min-w-full bg-cover bg-center p-8 sm:p-16 flex flex-col justify-end min-h-[400px]"
+            style="
+              background-image:
+                linear-gradient(
+                  to top,
+                  rgba(15, 23, 42, 0.95) 30%,
+                  rgba(15, 23, 42, 0.4)
+                ),
+                url(&quot;https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&q=80&w=1200&quot;);
+            "
+          >
+            <div class="space-y-2">
+              <span
+                class="bg-blue-500 text-white font-bold text-[10px] px-2 py-1 rounded"
+                >LINGKUNGAN</span
+              >
+              <h4 class="text-xl sm:text-2xl font-bold" data-id="csr2-title">
+                Konservasi Mangrove Pesisir
+              </h4>
+              <p
+                class="text-slate-300 text-xs sm:text-sm max-w-xl"
+                data-id="csr2-desc"
+              >
+                Penanaman 10.000 bibit mangrove berkala guna mereduksi abrasi
+                pantai dan melindungi hayati lokal.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="absolute bottom-6 right-6 flex gap-2">
+          <button
+            onclick="prevCsr()"
+            class="w-8 h-8 bg-white/10 hover:bg-white/25 rounded-full flex items-center justify-center text-white border border-white/20"
+          >
+            <i class="fa-solid fa-arrow-left text-xs"></i>
+          </button>
+          <button
+            onclick="nextCsr()"
+            class="w-8 h-8 bg-white/10 hover:bg-white/25 rounded-full flex items-center justify-center text-white border border-white/20"
+          >
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- End Kontribusi -->
+
+    <!-- Kontak -->
+
+    <section
+      id="contact"
+      class="py-24 bg-slate-950 text-white border-t border-slate-800"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="text-center space-y-2">
+          <h2
+            class="text-3xl font-bold tracking-tight sm:text-4xl"
+            data-id="contact-title"
+          >
+            Hubungi Jaringan Kami
+          </h2>
+          <p
+            class="text-slate-400 max-w-md mx-auto text-xs sm:text-sm"
+            data-id="contact-desc"
+          >
+            Representasi kantor korespondensi resmi kemitraan bisnis.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div
+            class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4 shadow-xl"
+            data-aos="fade-right"
+          >
+            <span
+              class="bg-blue-600 text-white text-[10px] font-bold px-2.5 py-1 rounded"
+              >KANTOR PUSAT</span
+            >
+            <h3 class="text-xl font-bold text-blue-400">Head Office (HO)</h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Sudirman Central Business District (SCBD) Tower Alpha Lantai 45,
+              <br />Jl. Jenderal Sudirman Kav. 52, Jakarta Selatan 12190,
+              Indonesia.
+            </p>
+            <div
+              class="text-xs text-slate-400 space-y-1.5 pt-2 border-t border-slate-800"
+            >
+              <p>
+                <i class="fa-solid fa-phone text-blue-500 mr-2"></i> +62 21 5550
+                1234
+              </p>
+              <p>
+                <i class="fa-solid fa-envelope text-blue-500 mr-2"></i>
+                corporate@PT Perta-Samtan Gasenergy.co.id
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4 shadow-xl"
+            data-aos="fade-left"
+          >
+            <span
+              class="bg-slate-800 text-blue-400 text-[10px] font-bold px-2.5 py-1 rounded"
+              >KANTOR PENGHUBUNG</span
+            >
+            <h3 class="text-xl font-bold text-slate-200">
+              Liaison Office (LO)
+            </h3>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Gedung Balikpapan Global Energy Hub, Lantai 3 Suite B, <br />Jl.
+              Jenderal Sudirman No. 88, Balikpapan, Kalimantan Timur 76112,
+              Indonesia.
+            </p>
+            <div
+              class="text-xs text-slate-400 space-y-1.5 pt-2 border-t border-slate-800"
+            >
+              <p>
+                <i class="fa-solid fa-phone text-blue-500 mr-2"></i> +62 542
+                7770 987
+              </p>
+              <p>
+                <i class="fa-solid fa-envelope text-blue-500 mr-2"></i>
+                lo-balikpapan@PT Perta-Samtan Gasenergy.co.id
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Kontak -->
+
+    <footer
+      class="bg-slate-950 text-slate-600 text-xs py-8 text-center border-t border-slate-900"
+    >
+      <p>
+        &copy; 2026 PT Perta-Samtan Gas Energy Corp. Seluruh Hak Cipta
+        Dilindungi Undang-Undang.
+      </p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Navbar -->
+    <script>
+      const navbar = document.getElementById("navbar");
+      const navbarLogo = document.getElementById("navbar-logo");
+
+      function updateNavbar() {
+        if (window.scrollY > 50) {
+          /* HAPUS TRANSPARENT */
+          navbar.classList.remove("transparent");
+
+          /* TAMBAH SCROLLED */
+          navbar.classList.add("scrolled");
+
+          /* GANTI LOGO */
+          navbarLogo.src = "assets/image/images/PSG.png";
+        } else {
+          /* BALIK KE TRANSPARENT */
+          navbar.classList.remove("scrolled");
+
+          navbar.classList.add("transparent");
+
+          /* LOGO PUTIH */
+          navbarLogo.src = "assets/image/images/PSGPutih.png";
+        }
+      }
+
+      /* SAAT SCROLL */
+      window.addEventListener("scroll", updateNavbar);
+
+      /* SAAT PERTAMA LOAD */
+      updateNavbar();
+    </script>
+    <!-- End Navbar -->
+
+    <!-- header -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll("#hero-slider .slide");
+        let currentSlide = 0;
+        const slideInterval = 5000; // Durasi per gambar (5000ms = 5 detik)
+
+        function nextSlide() {
+          // Hapus kelas aktif dari slide saat ini
+          slides[currentSlide].classList.remove("active");
+
+          // Hitung indeks untuk slide berikutnya (kembali ke 0 jika sudah di akhir)
+          currentSlide = (currentSlide + 1) % slides.length;
+
+          // Tambahkan kelas aktif ke slide baru
+          slides[currentSlide].classList.add("active");
+        }
+
+        // Jalankan fungsi loop otomatis berdasarkan interval waktu
+        setInterval(nextSlide, slideInterval);
+      });
+    </script>
+    <!-- end header -->
+
+    <script>
+      /* =====================================================
+     INIT AOS
+  ====================================================== */
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      /* =====================================================
+     MOBILE MENU
+  ====================================================== */
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
+
+        document.querySelectorAll("#mobile-menu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+          });
+        });
+      }
+
+      /* =====================================================
+     HERO AUTO SLIDER
+  ====================================================== */
+
+      const slides = document.querySelectorAll(".slide");
+
+      let currentSlide = 0;
+
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          if (i === index) {
+            slide.classList.remove("opacity-0");
+            slide.classList.add("opacity-100");
+          } else {
+            slide.classList.remove("opacity-100");
+            slide.classList.add("opacity-0");
+          }
+        });
+      }
+
+      function nextSlide() {
+        currentSlide++;
+
+        if (currentSlide >= slides.length) {
+          currentSlide = 0;
+        }
+
+        showSlide(currentSlide);
+      }
+
+      function prevSlide() {
+        currentSlide--;
+
+        if (currentSlide < 0) {
+          currentSlide = slides.length - 1;
+        }
+
+        showSlide(currentSlide);
+      }
+
+      /* Global agar onclick HTML bisa baca */
+      window.nextSlide = nextSlide;
+      window.prevSlide = prevSlide;
+
+      /* Slide pertama */
+      showSlide(currentSlide);
+
+      /* Auto Slide */
+      setInterval(nextSlide, 5000);
+
+      /* =====================================================
+     AWARD SLIDER
+  ====================================================== */
+
+      const awardTrack = document.getElementById("award-slider");
+
+      if (awardTrack) {
+        let currentAwardSlide = 0;
+        const totalAwards = awardTrack.children.length;
+
+        function updateAwardSlider() {
+          awardTrack.style.transform = `translateX(-${currentAwardSlide * 100}%)`;
+        }
+
+        function nextAward() {
+          currentAwardSlide = (currentAwardSlide + 1) % totalAwards;
+
+          updateAwardSlider();
+        }
+
+        function prevAward() {
+          currentAwardSlide =
+            (currentAwardSlide - 1 + totalAwards) % totalAwards;
+
+          updateAwardSlider();
+        }
+
+        window.nextAward = nextAward;
+        window.prevAward = prevAward;
+      }
+
+      /* =====================================================
+     CSR SLIDER
+  ====================================================== */
+
+      const csrTrack = document.getElementById("csr-slider");
+
+      if (csrTrack) {
+        let currentCsrSlide = 0;
+        const totalCsr = csrTrack.children.length;
+
+        function updateCsrSlider() {
+          csrTrack.style.transform = `translateX(-${currentCsrSlide * 100}%)`;
+        }
+
+        function nextCsr() {
+          currentCsrSlide = (currentCsrSlide + 1) % totalCsr;
+
+          updateCsrSlider();
+        }
+
+        function prevCsr() {
+          currentCsrSlide = (currentCsrSlide - 1 + totalCsr) % totalCsr;
+
+          updateCsrSlider();
+        }
+
+        window.nextCsr = nextCsr;
+        window.prevCsr = prevCsr;
+      }
+
+      /* =====================================================
+     MULTI LANGUAGE
+  ====================================================== */
+
+      let currentLanguage = "ID";
+
+      const dictionary = {
+        ID: {
+          "menu-home": "Home",
+          "menu-about": "Tentang Kami",
+          "menu-business": "Bisnis Kami",
+          "menu-contribution": "Kontribusi Kami",
+          "menu-contact": "Hubungi Kami",
+        },
+
+        EN: {
+          "menu-home": "Home",
+          "menu-about": "About Us",
+          "menu-business": "Our Business",
+          "menu-contribution": "Our Contribution",
+          "menu-contact": "Contact Us",
+        },
+      };
+
+      function toggleLanguage() {
+        currentLanguage = currentLanguage === "ID" ? "EN" : "ID";
+
+        const langBtn = document.getElementById("lang-btn");
+
+        const langBtnMobile = document.getElementById("lang-btn-mobile");
+
+        if (langBtn) {
+          const span = langBtn.querySelector("span");
+
+          if (span) {
+            span.innerText = currentLanguage === "ID" ? "EN" : "ID";
+          }
+        }
+
+        if (langBtnMobile) {
+          langBtnMobile.innerText = currentLanguage === "ID" ? "EN" : "ID";
+        }
+
+        document.querySelectorAll("[data-id]").forEach((element) => {
+          const id = element.getAttribute("data-id");
+
+          if (dictionary[currentLanguage][id]) {
+            element.innerText = dictionary[currentLanguage][id];
+          }
+        });
+      }
+
+      /* Global */
+      window.toggleLanguage = toggleLanguage;
+    </script>
+  </body>
+</html>
